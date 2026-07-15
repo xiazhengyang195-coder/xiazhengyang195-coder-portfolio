@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>夏正阳 — Vibe Coder</title>
+  <meta name="description" content="夏正阳 Xia Zhengyang · Vibe Coder · 游戏出海 × AI Growth · 六段可进入的交互世界" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,300..900&family=Space+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;700&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body id="top">
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+  <!-- 导航 -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__brand" data-link>夏正阳<span class="nav__brand-latin">XZY</span></a>
+    <div class="nav__meta">
+      <span class="nav__loc">VIBE CODER</span>
+      <a href="mailto:2679257139@qq.com" class="nav__mail" data-link>2679257139@qq.com</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="hero__inner">
+      <p class="hero__eyebrow line">游戏出海 <i>×</i> AI Growth</p>
+      <h1 class="hero__title">
+        <span class="line">夏正阳</span>
+      </h1>
+      <p class="hero__sub"><span class="line"><em>Xia Zhengyang</em> — 用代码造六个可以走进去的世界</span></p>
+    </div>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track" id="tickerTrack"></div>
+    </div>
+
+    <a href="#works" class="hero__scroll" aria-label="向下滚动">
+      <span>SCROLL</span>
+      <span class="hero__scroll-line"></span>
+    </a>
+  </section>
+
+  <!-- 作品 -->
+  <section class="works" id="works">
+    <div class="section-head">
+      <span class="section-head__eyebrow">SELECTED WORKS — 六段旅程</span>
+      <h2 class="section-head__title"><span class="line">从窗前的风<br /><em>到木星的暗面</em></span></h2>
+    </div>
+    <div class="reel" id="reel"><!-- JS 注入 --></div>
+  </section>
+
+  <!-- 增长工具 -->
+  <section class="tools" id="tools">
+    <div class="section-head">
+      <span class="section-head__eyebrow">GAME GROWTH — 出海运营</span>
+      <h2 class="section-head__title"><span class="line">给玩家造的<br /><em>两个 AI 助手</em></span></h2>
+    </div>
+    <div class="tools__grid" id="toolsGrid"><!-- JS 注入 --></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <a href="mailto:2679257139@qq.com" class="footer__mail" data-link>2679257139@qq.com</a>
+    <p class="footer__name">夏正阳 <span>· Vibe Coder</span></p>
+  </footer>
+
+  <!-- 灯箱 -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lightboxClose" aria-label="关闭">CLOSE ✕</button>
+    <figure class="lightbox__fig">
+      <img id="lightboxImg" src="" alt="" />
+      <figcaption id="lightboxCap"></figcaption>
+    </figure>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
