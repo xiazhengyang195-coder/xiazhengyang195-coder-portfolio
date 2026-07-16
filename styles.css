@@ -315,7 +315,7 @@ em, i { font-style: italic; }
   font-family: var(--font-cn-serif); font-weight: 700; font-size: clamp(24px, 3vw, 34px);
   margin-top: 26px; line-height: 1.1;
 }
-.tool__latin { font-family: var(--font-serif); font-style: italic; color: var(--ink-dim); font-size: 15px; margin-top: 6px; }
+.tool__latin { display: block; font-family: var(--font-serif); font-style: italic; color: var(--ink-dim); font-size: 15px; margin-top: 6px; }
 .tool__note { font-family: var(--font-sans); color: var(--ink-dim); font-size: clamp(15px,1.7vw,17px); line-height: 1.6; margin-top: 16px; max-width: 46ch; }
 
 /* ===== FOOTER ===== */
@@ -394,7 +394,7 @@ em, i { font-style: italic; }
 
   /* 页脚：邮件竖排更醒目 */
   .footer { flex-direction: column; align-items: flex-start; gap: 28px; }
-  .footer__mail { font-size: 30px; word-break: break-all; }
+  .footer__mail { font-size: 24px; word-break: normal; overflow-wrap: anywhere; }
 }
 
 /* ===== 动画基态 ===== */
