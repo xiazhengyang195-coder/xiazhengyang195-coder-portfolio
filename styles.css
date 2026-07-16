@@ -201,6 +201,16 @@ em, i { font-style: italic; }
   font-family: var(--font-sans); font-size: clamp(15px, 1.7vw, 17.5px);
   color: var(--ink-dim); line-height: 1.6; margin-top: 22px; max-width: 34ch;
 }
+.entry__credit {
+  display: flex; align-items: flex-start; gap: 9px;
+  margin-top: 20px; max-width: 34ch;
+  padding: 12px 15px; border-radius: 3px;
+  background: color-mix(in srgb, var(--accent-local) 9%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-local) 26%, transparent);
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: .03em;
+  line-height: 1.55; color: var(--ink);
+}
+.entry__credit-mark { color: var(--accent-local); flex: none; font-size: 12px; line-height: 1.55; }
 .entry__link {
   display: inline-flex; align-items: center; gap: 10px; margin-top: 28px;
   font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .18em; text-transform: uppercase;
@@ -310,6 +320,55 @@ em, i { font-style: italic; }
   background: none; border: 1px solid var(--line-strong); border-radius: 999px; padding: 9px 16px; cursor: pointer;
 }
 .lightbox__close:hover { border-color: var(--ink); }
+
+/* ===== 手机端专属排版 ===== */
+@media (max-width: 640px) {
+  :root { --pad: 22px; }
+
+  /* 导航：品牌 + 邮件两行呼吸感，邮件字号收敛避免溢出 */
+  .nav { padding: 18px var(--pad); align-items: center; }
+  .nav__meta { gap: 0; }
+  .nav__mail { font-size: 10px; letter-spacing: .08em; }
+
+  /* HERO：更戏剧化的竖排大标题，收紧留白 */
+  .hero { padding: 132px var(--pad) 150px; justify-content: flex-start; }
+  .hero__eyebrow { margin-bottom: 26px; }
+  .hero__title { font-size: 26vw; line-height: .92; }
+  .hero__sub { margin-top: 26px; font-size: 19px; max-width: 18ch; }
+  .ticker { bottom: 92px; }
+  .hero__scroll { bottom: 26px; }
+
+  /* 区块头：标题更聚拢 */
+  .section-head { margin-bottom: 44px; }
+  .section-head__title { font-size: 40px; line-height: 1.04; }
+  .works { padding: 96px 0 40px; }
+  .tools { padding: 60px 0 90px; }
+
+  /* 作品：图片满幅出血，编号大字压角，形成杂志感 */
+  .entry { padding: 46px 0 40px; gap: 20px; }
+  .entry__media {
+    margin: 0 calc(-1 * var(--pad)); width: 100vw;
+    aspect-ratio: 3 / 4; border-radius: 0; outline: none;
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  .entry__text { padding: 0; }
+  .entry__index { font-size: 64px; margin-bottom: 6px; }
+  .entry__title { font-size: 30px; }
+  .entry__latin { font-size: 15px; }
+  .entry__note { font-size: 15.5px; margin-top: 16px; max-width: none; }
+  .entry__credit { margin-top: 16px; max-width: none; font-size: 11.5px; }
+  .entry__link { margin-top: 22px; }
+
+  /* 工具卡：全幅、大标题 */
+  .tools__grid { gap: 44px; }
+  .tool__media { aspect-ratio: 3 / 2; }
+  .tool__title { font-size: 24px; margin-top: 20px; }
+  .tool__note { font-size: 15px; max-width: none; }
+
+  /* 页脚：邮件竖排更醒目 */
+  .footer { flex-direction: column; align-items: flex-start; gap: 28px; }
+  .footer__mail { font-size: 30px; word-break: break-all; }
+}
 
 /* ===== 动画基态 ===== */
 .line > *, .line { will-change: transform, opacity; }

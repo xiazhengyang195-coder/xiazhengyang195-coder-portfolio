@@ -3,6 +3,7 @@ const WORKS = [
   {
     num: "01", title: "窗帘交互网页", latin: "Curtain Physics",
     note: "把一块布交给物理引擎，风从窗外来，鼠标拨一下就掀起真实的褶皱——最日常的场景，做成可以伸手触碰的。",
+    credit: "选入 Kimi K2.6 版本宣发视频与开屏动画 · 小红书收藏 2k+",
     accent: "#e8ddd0",
     video: "public/videos/01-curtain.mp4", thumb: "public/thumbnails/01-curtain.jpg",
     href: "https://5lva67yl7c23k.beta-ok.kimi.link/",
@@ -68,6 +69,7 @@ function entryCard(w, i) {
       <span class="entry__index line">${w.num}</span>
       <h3 class="entry__title line">${w.title}<span class="entry__latin">${w.latin}</span></h3>
       <p class="entry__note line">${w.note}</p>
+      ${w.credit ? `<p class="entry__credit line"><span class="entry__credit-mark">★</span>${w.credit}</p>` : ""}
       <a class="entry__link" href="${w.href}" target="_blank" rel="noopener" data-link>
         进入世界 <span class="arrow">↗</span>
       </a>
