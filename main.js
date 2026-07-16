@@ -78,9 +78,13 @@ function entryCard(w, i) {
       <span class="entry__tag"><i>◆</i> ${w.latin}</span>
       <img class="entry__thumb" src="${w.thumb}" alt="${w.title}" loading="lazy" />
       <video class="entry__video" src="${w.video}" muted loop playsinline preload="none"></video>
-      <span class="entry__sound" role="button" tabindex="0" aria-label="开关声音" aria-pressed="false">
-        <span class="entry__sound-ico">🔇</span>
-        <span class="entry__sound-txt">点击有声</span>
+      <span class="entry__sound" role="button" tabindex="0" aria-label="开启声音" aria-pressed="false">
+        <svg class="entry__sound-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 9.5v5h3.6L12 18.2V5.8L7.6 9.5H4z"/>
+          <path class="entry__sound-wave" d="M15.4 9.2a3.8 3.8 0 0 1 0 5.6"/>
+          <path class="entry__sound-wave" d="M17.9 6.7a7.3 7.3 0 0 1 0 10.6"/>
+          <line class="entry__sound-slash" x1="15" y1="9" x2="20" y2="15"/>
+        </svg>
       </span>
     </a>
   </article>`;
@@ -158,8 +162,6 @@ document.querySelectorAll(".entry").forEach((entry) => {
   // 声音开关：默认静音自动播放，点击喇叭后带声音（点击本身是用户手势，绕过自动播放限制）
   const sound = entry.querySelector(".entry__sound");
   if (sound) {
-    const ico = sound.querySelector(".entry__sound-ico");
-    const txt = sound.querySelector(".entry__sound-txt");
     const toggle = (e) => {
       e.preventDefault();
       e.stopPropagation();
@@ -167,8 +169,7 @@ document.querySelectorAll(".entry").forEach((entry) => {
       const on = !video.muted;
       entry.classList.toggle("is-sound", on);
       sound.setAttribute("aria-pressed", String(on));
-      ico.textContent = on ? "🔊" : "🔇";
-      txt.textContent = on ? "有声" : "点击有声";
+      sound.setAttribute("aria-label", on ? "关闭声音" : "开启声音");
       if (on) {
         if (!loaded) { video.load(); loaded = true; }
         video.play().catch(() => {});
