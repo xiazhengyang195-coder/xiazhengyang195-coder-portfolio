@@ -247,6 +247,31 @@ em, i { font-style: italic; }
 }
 .entry__tag i { color: var(--accent-local); font-style: normal; }
 
+/* 声音开关 */
+.entry__sound {
+  position: absolute; bottom: 14px; right: 14px; z-index: 4;
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 6px 12px 6px 10px; border-radius: 999px;
+  background: rgba(10,10,10,.55); backdrop-filter: blur(8px);
+  border: 1px solid var(--line-strong); color: var(--ink);
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase;
+  cursor: none; user-select: none;
+  opacity: 0; transform: translateY(6px);
+  transition: opacity .35s ease, transform .35s ease, border-color .3s ease;
+}
+.entry__sound-ico { font-size: 12px; line-height: 1; }
+.entry:hover .entry__sound { opacity: 1; transform: none; }
+.entry__sound:hover { border-color: var(--accent-local); }
+.entry.is-sound .entry__sound {
+  opacity: 1; transform: none;
+  border-color: color-mix(in srgb, var(--accent-local) 70%, transparent);
+  color: var(--accent-local);
+}
+.entry:focus-within .entry__sound { opacity: 1; transform: none; }
+@media (hover: none), (max-width: 820px) {
+  .entry__sound { cursor: pointer; opacity: 1; transform: none; }
+}
+
 @media (max-width: 820px) {
   .entry, .entry--flip { grid-template-columns: 1fr; gap: 22px; }
   .entry--flip .entry__text { order: 2; }

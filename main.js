@@ -78,6 +78,10 @@ function entryCard(w, i) {
       <span class="entry__tag"><i>◆</i> ${w.latin}</span>
       <img class="entry__thumb" src="${w.thumb}" alt="${w.title}" loading="lazy" />
       <video class="entry__video" src="${w.video}" muted loop playsinline preload="none"></video>
+      <span class="entry__sound" role="button" tabindex="0" aria-label="开关声音" aria-pressed="false">
+        <span class="entry__sound-ico">🔇</span>
+        <span class="entry__sound-txt">点击有声</span>
+      </span>
     </a>
   </article>`;
 }
@@ -150,6 +154,31 @@ document.querySelectorAll(".entry").forEach((entry) => {
     entry.classList.remove("is-playing");
     video.pause();
   });
+
+  // 声音开关：默认静音自动播放，点击喇叭后带声音（点击本身是用户手势，绕过自动播放限制）
+  const sound = entry.querySelector(".entry__sound");
+  if (sound) {
+    const ico = sound.querySelector(".entry__sound-ico");
+    const txt = sound.querySelector(".entry__sound-txt");
+    const toggle = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      video.muted = !video.muted;
+      const on = !video.muted;
+      entry.classList.toggle("is-sound", on);
+      sound.setAttribute("aria-pressed", String(on));
+      ico.textContent = on ? "🔊" : "🔇";
+      txt.textContent = on ? "有声" : "点击有声";
+      if (on) {
+        if (!loaded) { video.load(); loaded = true; }
+        video.play().catch(() => {});
+      }
+    };
+    sound.addEventListener("click", toggle);
+    sound.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") toggle(e);
+    });
+  }
 });
 
 /* ================= Lenis 平滑滚动 ================= */
